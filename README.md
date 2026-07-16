@@ -15,6 +15,12 @@ npm start        # http://localhost:4200
 npm run build
 ```
 
+## Publicar no GitHub Pages
+
+O deploy é automático via GitHub Actions. Faça push para `main` e, no repositório, configure **Settings > Pages** com a fonte **GitHub Actions**.
+
+Se quiser disparar manualmente, use o workflow **Deploy Angular site to GitHub Pages** na aba **Actions**.
+
 > Obs.: se o build travar tentando "inline de fontes" (erro 403 do Google Fonts em ambientes sem acesso à internet no momento do build), isso já está desativado em `angular.json` (`optimization.fonts: false`). As fontes continuam carregando normalmente no navegador via `<link>` no `index.html`.
 
 ## Estrutura
