@@ -1,0 +1,14 @@
+<section class="services section-dark" id="servicos">
+  <div class="container">
+    <p class="eyebrow eyebrow--on-dark">Serviços</p>
+    <h2>Áreas de atuação</h2>
+
+    <ul class="practice-list">
+      <li class="practice-row" *ngFor="let item of services">
+        <span class="practice-row__tag">{{ item.ref }}</span>
+        <h3>{{ item.label }}</h3>
+        <p>{{ item.description }}</p>
+      </li>
+    </ul>
+  </div>
+</section>

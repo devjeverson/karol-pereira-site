@@ -1,0 +1,21 @@
+.cta-band {
+  padding: 5rem 0;
+  border-top: 1px solid var(--line-on-dark);
+}
+
+.cta-band__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+
+  h2 { max-width: 18ch; margin: 0.6rem 0 0; }
+}
+
+.cta-band__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  flex-shrink: 0;
+}

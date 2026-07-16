@@ -1,0 +1,41 @@
+.filantropia {
+  padding: var(--section-pad) 0;
+}
+
+.writing-list {
+  list-style: none;
+  margin: 3rem 0 0;
+  padding: 0;
+  border-top: 1px solid var(--line-on-light);
+}
+
+.writing-item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 1.5rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--line-on-light);
+
+  &__date {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--color-gold-dim);
+    padding-top: 0.3rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    margin: 0 0 0.5rem;
+  }
+
+  p {
+    margin: 0;
+    color: var(--color-muted-light);
+    max-width: 60ch;
+  }
+
+  @media (max-width: 560px) {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+}

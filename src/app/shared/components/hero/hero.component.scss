@@ -1,0 +1,129 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-ink);
+  color: var(--color-text-dark);
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  padding: 9rem 0 4.5rem;
+
+  @media (max-width: 900px) {
+    display: block;
+    min-height: auto;
+    padding: 7.5rem 0 0;
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.hero__copy {
+  position: relative;
+  max-width: 620px;
+
+  h1 { margin: 0.9rem 0 1.4rem; }
+
+  @media (max-width: 900px) {
+    max-width: none;
+    padding-bottom: 0;
+  }
+}
+
+.hero__lead {
+  max-width: 46ch;
+  font-size: var(--step-lead);
+  color: var(--color-muted-dark);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+
+  @media (max-width: 900px) {
+    margin-top: 1.75rem;
+
+    .btn { flex: 1 1 auto; justify-content: center; }
+  }
+}
+
+// Foto ocupa toda a área lateral, do topo à base da seção,
+// sangrando até a borda da viewport — com degradê de transição
+// para o fundo, como na referência.
+.hero__photo {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 52%;
+  z-index: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background:
+      linear-gradient(
+        to right,
+        var(--color-ink) 0%,
+        rgba(15, 28, 46, 0.75) 12%,
+        rgba(15, 28, 46, 0.15) 32%,
+        transparent 55%
+      ),
+      linear-gradient(
+        to top,
+        var(--color-ink) 0%,
+        transparent 22%
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(15, 28, 46, 0.55) 0%,
+        transparent 16%
+      );
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: radial-gradient(
+      circle at 70% 30%,
+      rgba(207, 154, 62, 0.14) 0%,
+      transparent 55%
+    );
+  }
+
+  img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    filter: saturate(0.94) contrast(1.03);
+  }
+
+  @media (max-width: 900px) {
+    position: relative;
+    inset: auto;
+    width: auto;
+    margin: 2.5rem -1.5rem 0;
+    height: 78vw;
+
+    &::before {
+      background: linear-gradient(
+        to top,
+        var(--color-ink) 0%,
+        rgba(15, 28, 46, 0.05) 30%,
+        transparent 55%
+      );
+    }
+  }
+}
+

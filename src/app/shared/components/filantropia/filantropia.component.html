@@ -1,0 +1,16 @@
+<section class="filantropia section-light" id="filantropia">
+  <div class="container">
+    <p class="eyebrow">Escritos e Filantropia</p>
+    <h2>Pesquisa, artigos e ações sociais</h2>
+
+    <ul class="writing-list">
+      <li class="writing-item" *ngFor="let item of writings">
+        <span class="writing-item__date">{{ item.date }}</span>
+        <div class="writing-item__content">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.summary }}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>

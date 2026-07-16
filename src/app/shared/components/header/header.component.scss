@@ -1,0 +1,97 @@
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+
+  &.is-scrolled {
+    background: var(--color-ink);
+    border-bottom-color: var(--line-on-dark);
+  }
+}
+
+.site-header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.4rem 1.5rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--color-text-dark);
+
+  &__seal { width: 34px; height: 34px; flex-shrink: 0; border-radius: 50%; object-fit: cover; }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+
+    strong { font-family: var(--font-display); font-size: 1.02rem; font-weight: 600; }
+    small { font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.1em; color: var(--color-gold); text-transform: uppercase; }
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  a {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    opacity: 0.85;
+
+    &:hover { opacity: 1; color: var(--color-gold); }
+  }
+
+  &__cta { padding: 0.65rem 1.4rem !important; font-size: 0.84rem !important; }
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  span { display: block; width: 22px; height: 1.5px; background: var(--color-text-dark); margin: 0 auto; }
+}
+
+@media (max-width: 900px) {
+  .menu-toggle { display: flex; }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--color-ink);
+    border-bottom: 1px solid var(--line-on-dark);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+
+    a { padding: 1.1rem 1.5rem; border-top: 1px solid var(--line-on-dark); opacity: 1; }
+    &__cta { margin: 1.1rem 1.5rem; justify-content: center; }
+    &.is-open { max-height: 420px; }
+  }
+
+  .site-header:not(.is-scrolled) .nav.is-open { background: var(--color-ink); }
+}

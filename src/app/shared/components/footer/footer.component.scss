@@ -1,0 +1,164 @@
+:host {
+  display: block;
+  flex-shrink: 0;
+}
+
+.site-footer {
+  position: relative;
+  background: var(--color-ink);
+  
+}
+
+/* Linha superior */
+
+.footer-line {
+
+  width: min(1240px, calc(100% - 3rem));
+  height: 1px;
+
+  margin: 0 auto;
+
+  background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(207,154,62,.15),
+      rgba(207,154,62,.95),
+      rgba(207,154,62,.15),
+      transparent
+  );
+
+}
+
+.site-footer__inner {
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 1.4rem;
+
+  padding: 1.0rem 0;
+
+  text-align: center;
+
+}
+
+/* ---------- Redes ---------- */
+
+.social-icons {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1rem;
+
+}
+
+.social-icons a {
+
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  color: var(--color-gold);
+
+  transition:
+      transform .25s ease,
+      color .25s ease,
+      border-color .25s ease,
+      background .25s ease;
+
+}
+
+.social-icons a:hover {
+
+  transform: translateY(-4px);
+
+  color: var(--color-white);
+
+  border-color: var(--color-gold);
+
+  background: rgba(207,154,62,.08);
+
+}
+
+.social-icons ion-icon {
+
+  font-size: 1.35rem;
+
+}
+
+/* ---------- Texto ---------- */
+
+.site-footer__text {
+
+  margin: 0;
+
+  max-width: 640px;
+
+  font-size: .96rem;
+
+  color: var(--color-muted-dark);
+
+}
+
+.site-footer__copy {
+
+  margin: 0;
+
+  font-size: .82rem;
+
+  color: rgba(255,255,255,.45);
+
+  letter-spacing: .04em;
+
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width:768px){
+
+  .site-footer__inner{
+
+      padding:2rem 0;
+
+      gap:1rem;
+
+  }
+
+  .social-icons{
+
+      gap:.8rem;
+
+  }
+
+  .social-icons a{
+
+      width:44px;
+      height:44px;
+
+  }
+
+  .social-icons ion-icon{
+      font-size:22px;
+  }
+
+  .site-footer__text{
+
+      font-size:.9rem;
+
+      padding:0 1rem;
+
+  }
+
+}
