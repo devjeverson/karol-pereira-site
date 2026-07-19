@@ -69,6 +69,90 @@ app-root {
 
 main { 
   flex: 1 0 auto;
+  //padding-bottom: 7%;
+ }
+
+app-footer{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    z-index: 999;
+}
+
+h1, h2, h3, h4 {// ============================================================
+// Karol Pereira Advocacia — Design tokens (landing executiva)
+// Conceito: autoridade editorial — tipografia grande, hairlines
+// finas, faixas escuras/claras alternadas, dourado como único
+// acento de destaque. Sem cards fofos, sem sombras pesadas.
+// ============================================================
+
+:root {
+  // Cor — paleta clean em azul-marinho profundo com dourado como acento
+  --color-ink: #300810;        // fundo escuro principal (azul-marinho quase preto)
+  --color-ink-soft: #16283d;   // painel escuro secundário
+  --color-parchment: #f6f6f4; // fundo claro principal
+  --color-paper: #fbfbfa;     // fundo claro secundário
+  --color-gold: #cf9a3e;      // acento — dourado (tom do logo)
+  --color-gold-dim: #9c7527;  // dourado para texto sobre claro
+  --color-wine: #1c3350;      // azul secundário — uso pontual (CTA, tag)
+  --color-text-dark: #f2f4f7; // texto sobre fundo escuro
+  --color-text-light: #1a2431;// texto sobre fundo claro
+  --color-muted-dark: rgba(242, 244, 247, 0.62);
+  --color-muted-light: #5b6472;
+  --line-on-dark: rgba(242, 244, 247, 0.14);
+  --line-on-light: #e0e3e8;
+  --color-white: #ffffff;
+
+  // Tipografia
+  --font-display: 'Fraunces', 'Georgia', serif;
+  --font-body: 'Source Sans 3', 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  // Escala
+  --step-caption: 0.78rem;
+  --step-body: 1.05rem;
+  --step-lead: 1.25rem;
+  --step-h3: 1.4rem;
+  --step-h2: clamp(1.9rem, 1.4rem + 2vw, 2.9rem);
+  --step-h1: clamp(2.75rem, 1.7rem + 4.2vw, 5.1rem);
+
+  // Layout
+  --content-width: 1240px;
+  --radius-sm: 3px;
+  --section-pad: clamp(4.5rem, 4rem + 3vw, 7.5rem);
+
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+html, body { margin: 0; padding: 0; height: 100%; }
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--step-body);
+  color: var(--color-text-light);
+  background: var(--color-parchment);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+// Rodapé fixo na base — o conteúdo cresce, o rodapé permanece ancorado
+// à parte inferior da viewport em páginas curtas e ao final do
+// documento em páginas longas.
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main { 
+  flex: 1 0 auto;
   padding-bottom: 7%;
  }
 
@@ -83,6 +167,98 @@ app-footer{
 }
 
 h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0 0 0.6em;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: var(--step-h1); }
+h2 { font-size: var(--step-h2); }
+h3 { font-size: var(--step-h3); font-weight: 500; }
+
+p { margin: 0 0 1em; }
+
+a { color: inherit; text-decoration: none; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold-dim);
+
+  &::before {
+    content: '';
+    width: 26px;
+    height: 1px;
+    background: currentColor;
+  }
+}
+
+.eyebrow--on-dark {
+  color: var(--color-gold);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+
+  @media (min-width: 768px) { padding: 0 3rem; }
+}
+
+.section-dark { background: var(--color-ink); color: var(--color-text-dark); }
+.section-light { background: var(--color-parchment); color: var(--color-text-light); }
+.section-paper { background: var(--color-paper); color: var(--color-text-light); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+
+  &:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 3px; }
+}
+
+.btn--gold {
+  background: var(--color-gold);
+  color: var(--color-ink);
+  &:hover { background: var(--color-text-dark); }
+}
+
+.btn--outline-dark {
+  background: transparent;
+  color: var(--color-text-dark);
+  border-color: rgba(242, 244, 247, 0.4);
+  &:hover { border-color: var(--color-gold); color: var(--color-gold); }
+}
+
+.btn--outline-light {
+  background: transparent;
+  color: var(--color-text-light);
+  border-color: var(--color-text-light);
+  &:hover { background: var(--color-text-light); color: var(--color-paper); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
+
   font-family: var(--font-display);
   font-weight: 600;
   line-height: 1.1;
