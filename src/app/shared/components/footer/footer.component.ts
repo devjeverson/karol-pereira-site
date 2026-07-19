@@ -14,17 +14,17 @@ export class FooterComponent {
   socials = [
     {
       name: 'Instagram',
-      href: 'https://instagram.com/karol',
+      href: 'https://instagram.com/adv.karolpereira',
       icon: 'logo-instagram'
     },
     {
       name: 'LinkedIn',
-      href: 'https://linkedin.com/in/karol',
+      href: 'https://linkedin.com/in/karol-pereira-50798440b',
       icon: 'logo-linkedin'
     },
     {
       name: 'TikTok',
-      href: 'https://tiktok.com/@karol',
+      href: 'https://tiktok.com/@adv.karolpereira',
       icon: 'logo-tiktok'
     }
   ];
